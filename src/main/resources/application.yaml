@@ -4,14 +4,7 @@ server:
 spring:
   application:
     name: gateway
-  cloud:
-    gateway:
-      routes:
-        - id: auth-service
-          uri: http://localhost:8081
-          predicates:
-            - Path=/api/auth/**
-        - id: score-service
-          uri: http://localhost:8082
-          predicates:
-            - Path=/api/scores/**
+
+routes:
+  auth-service-uri: ${AUTH_SERVICE_URI:http://localhost:8081}
+  score-service-uri: ${SCORE_SERVICE_URI:http://localhost:8082}
