@@ -5,6 +5,15 @@ spring:
   application:
     name: gateway
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,info
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
 routes:
   auth-service-uri: ${AUTH_SERVICE_URI:http://localhost:8081}
   score-service-uri: ${SCORE_SERVICE_URI:http://localhost:8082}
